@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatchling Creative</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            overflow: hidden;
+            background: #0a0a0f;
+        }
+
+        /* Animated gradient orbs */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            filter: blur(80px);
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .orb-1 {
+            width: 60vmax;
+            height: 60vmax;
+            background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+            top: -20%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 50vmax;
+            height: 50vmax;
+            background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+            top: 50%;
+            right: -20%;
+        }
+
+        .orb-3 {
+            width: 45vmax;
+            height: 45vmax;
+            background: radial-gradient(circle, #2563eb 0%, transparent 70%);
+            bottom: -20%;
+            left: 30%;
+        }
+
+        .orb-4 {
+            width: 40vmax;
+            height: 40vmax;
+            background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+            top: 20%;
+            right: 20%;
+        }
+
+        /* Canvas background */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: invert(1) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 32px;
+            padding: 3rem;
+            max-width: 480px;
+            animation: card3DEntry 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        @keyframes card3DEntry {
+            0% {
+                opacity: 0;
+                transform: perspective(1000px) translateY(100px) rotateY(180deg) scale(0.8);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(1000px) translateY(0) rotateY(0deg) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        /* Specular highlight - top edge shine */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.8) 20%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0.8) 80%,
+                transparent);
+            border-radius: 100%;
+            filter: blur(0.5px);
+        }
+
+        /* Inner glow layer */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 28px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.02) 100%
+            );
+            pointer-events: none;
+            box-shadow:
+                inset 0 0 30px rgba(255, 255, 255, 0.02),
+                inset 0 -2px 10px rgba(255, 255, 255, 0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .card-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 28px;
+            background: radial-gradient(
+                circle 200px at var(--shine-x, 50%) var(--shine-y, 50%),
+                rgba(255, 255, 255, 0.08) 0%,
+                transparent 100%
+            );
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-shine {
+            opacity: 1;
+        }
+
+        .card-text {
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.7;
+            margin: 0 0 2rem 0;
+        }
+
+        .card-highlight {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .card-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+            justify-content: center;
+        }
+
+        .pill {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+            opacity: 0;
+            animation: pillEntry 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .pill:nth-child(1) { animation-delay: 0.8s; }
+        .pill:nth-child(2) { animation-delay: 0.9s; }
+        .pill:nth-child(3) { animation-delay: 1.0s; }
+        .pill:nth-child(4) { animation-delay: 1.1s; }
+
+        @keyframes pillEntry {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pill-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #fff;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pill-icon.app { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .pill-icon.ai { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+        .pill-icon.cloud { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .pill-icon.design { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+
+        .pill-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            min-width: 0;
+        }
+
+        .pill-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .pill-detail {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.65rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-top: 0.15rem;
+            transition: color 0.3s ease;
+        }
+
+        .pill:hover .pill-detail {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .card-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            color: #a78bfa;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+        }
+
+        .contact-btn i {
+            font-size: 0.75rem;
+        }
+
+        .version {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.7rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            letter-spacing: 0.05em;
+        }
+
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .title {
+            color: #fff;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.25rem;
+            font-weight: 500;
+            max-width: 400px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            margin: 2.5rem auto;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+    </div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="content">
+        <div class="card" id="liquidCard">
+            <div class="card-shine" id="cardShine"></div>
+            <img src="logo.png" alt="Logo" class="logo">
+            <p class="card-text">We build <span class="card-highlight">next-generation digital experiences</span> and partner with forward-thinking companies to transform ideas into powerful, scalable solutions.</p>
+
+            <div class="card-divider"></div>
+
+            <div class="services">
+                <div class="pill" data-service="app">
+                    <div class="pill-icon app"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div class="pill-content">
+                        <span class="pill-label">App Development</span>
+                        <span class="pill-detail">Native iOS, Android & cross-platform solutions</span>
+                    </div>
+                </div>
+                <div class="pill" data-service="ai">
+                    <div class="pill-icon ai"><i class="fa-solid fa-brain"></i></div>
+                    <div class="pill-content">
+                        <span class="pill-label">AI Integration</span>
+                        <span class="pill-detail">LLMs, computer vision & predictive analytics</span>
+                    </div>
+                </div>
+                <div class="pill" data-service="cloud">
+                    <div class="pill-icon cloud"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="pill-content">
+                        <span class="pill-label">Cloud Systems</span>
+                        <span class="pill-detail">Scalable infrastructure & DevOps automation</span>
+                    </div>
+                </div>
+                <div class="pill" data-service="design">
+                    <div class="pill-icon design"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="pill-content">
+                        <span class="pill-label">UI/UX Design</span>
+                        <span class="pill-detail">Human-centered interfaces & design systems</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="status-row">
+                    <a href="mailto:rhett@hatchlingcreative.com" class="contact-btn">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact Us
+                    </a>
+                    <span class="version">v0.1.0-beta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.density = Math.random() * 30 + 1;
+            }
+
+            update() {
+                // Floating motion
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Wrap around edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+
+                // Mouse interaction
+                if (mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        let force = (mouse.radius - dist) / mouse.radius;
+                        let angle = Math.atan2(dy, dx);
+                        this.x -= Math.cos(angle) * force * 2;
+                        this.y -= Math.sin(angle) * force * 2;
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            const numParticles = Math.floor((canvas.width * canvas.height) / 12000);
+            for (let i = 0; i < Math.min(numParticles, 150); i++) {
+                particles.push(new Particle());
+            }
+        }
+        init();
+        window.addEventListener('resize', init);
+
+        function connect() {
+            const maxDist = 120;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDist) {
+                        let opacity = 1 - (dist / maxDist);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.15})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Orb cursor interaction
+        const orbs = document.querySelectorAll('.gradient-orb');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let orbPositions = Array.from(orbs).map(() => ({ x: 0, y: 0 }));
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateOrbs() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            orbs.forEach((orb, i) => {
+                const speed = 0.02 + (i * 0.005);
+                const intensity = 80 + (i * 20);
+
+                const targetX = ((mouseX - centerX) / centerX) * intensity;
+                const targetY = ((mouseY - centerY) / centerY) * intensity;
+
+                orbPositions[i].x += (targetX - orbPositions[i].x) * speed;
+                orbPositions[i].y += (targetY - orbPositions[i].y) * speed;
+
+                orb.style.transform = `translate(${orbPositions[i].x}px, ${orbPositions[i].y}px)`;
+            });
+
+            requestAnimationFrame(animateOrbs);
+        }
+        animateOrbs();
+
+        // Liquid glass card idle 3D twist animation
+        const card = document.getElementById('liquidCard');
+        const shine = document.getElementById('cardShine');
+        let time = 0;
+        let isHoveringCard = false;
+        let hoverRotation = { x: 0, y: 0 };
+
+        function animateCard() {
+            time += 0.015;
+
+            // Subtle idle twist animation
+            const idleRotateX = Math.sin(time) * 2;
+            const idleRotateY = Math.cos(time * 0.7) * 3;
+
+            let finalRotateX, finalRotateY, scale, lift;
+
+            if (isHoveringCard) {
+                // Blend hover rotation with slight idle motion
+                finalRotateX = hoverRotation.x + Math.sin(time) * 0.5;
+                finalRotateY = hoverRotation.y + Math.cos(time * 0.7) * 0.5;
+                scale = 1.02;
+                lift = -8;
+            } else {
+                finalRotateX = idleRotateX;
+                finalRotateY = idleRotateY;
+                scale = 1;
+                lift = 0;
+            }
+
+            card.style.transform = `perspective(1000px) rotateX(${finalRotateX}deg) rotateY(${finalRotateY}deg) translateY(${lift}px) scale(${scale})`;
+
+            requestAnimationFrame(animateCard);
+        }
+        animateCard();
+
+        card.addEventListener('mouseenter', () => {
+            isHoveringCard = true;
+        });
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            shine.style.setProperty('--shine-x', `${x}%`);
+            shine.style.setProperty('--shine-y', `${y}%`);
+
+            // Calculate hover rotation
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            hoverRotation.x = ((e.clientY - rect.top - centerY) / centerY) * -6;
+            hoverRotation.y = ((e.clientX - rect.left - centerX) / centerX) * 6;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            isHoveringCard = false;
+        });
+    </script>
+</body>
+</html>
