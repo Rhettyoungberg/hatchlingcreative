@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveBreak — Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #FAFBFD;
+            --card: #FFFFFF;
+            --border: #E8EAF0;
+            --text: #1A1D2B;
+            --text-secondary: #5A6178;
+            --text-muted: #9198AD;
+            --accent: #3B82F6;
+            --accent-teal: #14B8A6;
+            --gradient-start: #14B8A6;
+            --gradient-end: #3B82F6;
+            --green: #22C55E;
+            --red: #EF4444;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0E1117;
+                --card: #1A1D2B;
+                --border: #2A2E3F;
+                --text: #F0F2F8;
+                --text-secondary: #A0A8C4;
+                --text-muted: #5A6178;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 80px 24px 60px;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .effective-date {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-teal);
+            background: rgba(20, 184, 166, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .privacy-banner {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .privacy-banner h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .privacy-banner p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .privacy-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .pill .icon-green { color: var(--green); }
+        .pill .icon-red { color: var(--red); }
+
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-teal);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .section p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .section ul, .section ol {
+            margin: 12px 0 16px 24px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+            letter-spacing: 0.3px;
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background: rgba(0,0,0,0.02);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .data-table tr:nth-child(even) td {
+                background: rgba(255,255,255,0.02);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-local {
+            background: rgba(20, 184, 166, 0.12);
+            color: var(--accent-teal);
+        }
+
+        .badge-apple {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent);
+        }
+
+        .badge-none {
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--green);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(20, 184, 166, 0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .highlight p {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .toc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .toc li {
+            font-size: 15px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .toc a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .data-table, .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+                display: block;
+            }
+            .data-table thead {
+                display: none;
+            }
+            .data-table td {
+                padding: 8px 16px;
+                text-align: left;
+            }
+            .data-table td:before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text);
+                display: block;
+                margin-bottom: 4px;
+                font-size: 12px;
+                letter-spacing: 0.3px;
+            }
+            .data-table tr {
+                margin-bottom: 12px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-icon">🔒</div>
+    <h1>Privacy Policy</h1>
+    <p>MoveBreak by Hatchling Creative</p>
+</div>
+
+<div class="container">
+
+    <span class="effective-date">Effective: March 3, 2026</span>
+
+    <div class="privacy-banner">
+        <h3>Your Privacy at a Glance</h3>
+        <p>MoveBreak is built with a privacy-first architecture. Here's what that means:</p>
+        <div class="privacy-pills">
+            <span class="pill"><span class="icon-green">✓</span> All data stored on-device</span>
+            <span class="pill"><span class="icon-green">✓</span> No user accounts required</span>
+            <span class="pill"><span class="icon-green">✓</span> No third-party analytics</span>
+            <span class="pill"><span class="icon-green">✓</span> No advertising or tracking</span>
+            <span class="pill"><span class="icon-red">✕</span> No data sold to third parties</span>
+            <span class="pill"><span class="icon-red">✕</span> No cloud sync or remote servers</span>
+        </div>
+    </div>
+
+    <p class="intro">
+        This Privacy Policy describes how Hatchling Creative ("we," "us," or "our") collects, uses, and protects your information when you use the MoveBreak mobile application ("App"). We are committed to transparency about our data practices. Please read this policy carefully. By using MoveBreak, you agree to the practices described herein.
+    </p>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+            <li><a href="#p1">Information We Collect</a></li>
+            <li><a href="#p2">How We Use Your Information</a></li>
+            <li><a href="#p3">Data Storage & Security</a></li>
+            <li><a href="#p4">Apple HealthKit Data</a></li>
+            <li><a href="#p5">Calendar Data</a></li>
+            <li><a href="#p6">Notifications & On-Device AI</a></li>
+            <li><a href="#p7">Subscription & Payment Data</a></li>
+            <li><a href="#p8">Third-Party Services</a></li>
+            <li><a href="#p9">Data Sharing & Disclosure</a></li>
+            <li><a href="#p10">Data Retention & Deletion</a></li>
+            <li><a href="#p11">Children's Privacy</a></li>
+            <li><a href="#p12">International Users</a></li>
+            <li><a href="#p13">Your Rights</a></li>
+            <li><a href="#p14">California Privacy Rights (CCPA)</a></li>
+            <li><a href="#p15">European Privacy Rights (GDPR)</a></li>
+            <li><a href="#p16">Changes to This Policy</a></li>
+            <li><a href="#p17">Contact Us</a></li>
+        </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section" id="p1">
+        <div class="section-number">Section 1</div>
+        <h2>Information We Collect</h2>
+        <p>MoveBreak collects the minimum amount of information necessary to provide you with a personalized wellness experience. All data is stored locally on your device and is never transmitted to our servers.</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Purpose</th>
+                    <th>Storage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Data"><strong>First name</strong></td>
+                    <td data-label="Purpose">Personalized notifications (e.g., "Rhett, time to move!")</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Work schedule</strong></td>
+                    <td data-label="Purpose">Scheduling reminders within your work hours</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Body area preferences</strong></td>
+                    <td data-label="Purpose">Tailoring exercise recommendations to your problem areas</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Movement history</strong></td>
+                    <td data-label="Purpose">Tracking completions, calculating streaks, and showing stats</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Favorite movements</strong></td>
+                    <td data-label="Purpose">Quick access to exercises you enjoy</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Streak data</strong></td>
+                    <td data-label="Purpose">Displaying current and longest movement streaks</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>App preferences</strong></td>
+                    <td data-label="Purpose">Sound, haptic, voice guidance, notification tone and persistence settings</td>
+                    <td data-label="Storage"><span class="badge badge-local">On-Device</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Data"><strong>Subscription status</strong></td>
+                    <td data-label="Purpose">Determining free vs. premium feature access</td>
+                    <td data-label="Storage"><span class="badge badge-apple">Apple StoreKit</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Information we do NOT collect:</strong></p>
+        <ul>
+            <li>Email addresses or passwords</li>
+            <li>GPS location or geographic data</li>
+            <li>Device identifiers (IDFA, device UUID)</li>
+            <li>IP addresses</li>
+            <li>Browsing history or app usage analytics</li>
+            <li>Photos, contacts, or microphone data</li>
+            <li>Financial information (handled entirely by Apple)</li>
+        </ul>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="p2">
+        <div class="section-number">Section 2</div>
+        <h2>How We Use Your Information</h2>
+        <p>All data processing occurs locally on your device. We use your information exclusively to:</p>
+        <ul>
+            <li><strong>Deliver core functionality</strong> — generating personalized movement recommendations based on your location, body areas, and energy level</li>
+            <li><strong>Schedule reminders</strong> — sending notifications at appropriate times during your work hours, avoiding meeting conflicts</li>
+            <li><strong>Personalize notifications</strong> — using your name and preferences to create motivating, tone-appropriate reminder messages</li>
+            <li><strong>Track your progress</strong> — calculating movement streaks, completion counts, and daily/weekly statistics</li>
+            <li><strong>Log workouts to HealthKit</strong> — recording completed movements as health data (only with your explicit permission)</li>
+            <li><strong>Manage your subscription</strong> — determining whether you have access to free or premium features</li>
+        </ul>
+        <p>We do not use your data for advertising, profiling, market research, or any purpose beyond providing the App's functionality.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="p3">
+        <div class="section-number">Section 3</div>
+        <h2>Data Storage & Security</h2>
+        <p>All personal data is stored locally on your device using Apple's SwiftData framework, which leverages the device's native encryption and security protections. Specifically:</p>
+        <ul>
+            <li><strong>On-device encryption</strong> — Data is protected by your device's hardware encryption and passcode/biometric lock</li>
+            <li><strong>No cloud backup by default</strong> — MoveBreak data may be included in your iCloud device backup if you have iCloud Backup enabled on your device, subject to Apple's iCloud security practices</li>
+            <li><strong>No remote storage</strong> — We do not operate servers that receive, store, or process your personal data</li>
+            <li><strong>No database or backend</strong> — There is no Hatchling Creative database containing your information</li>
+        </ul>
+        <p>Because we never receive your data, risks associated with data breaches, unauthorized server access, or database compromises do not apply to MoveBreak's data practices.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="p4">
+        <div class="section-number">Section 4</div>
+        <h2>Apple HealthKit Data</h2>
+
+        <div class="highlight">
+            <p>HealthKit integration is entirely optional and requires your explicit authorization. You can revoke access at any time through your device's Settings → Health → MoveBreak.</p>
+        </div>
+
+        <p><strong>Data we write to HealthKit:</strong></p>
+        <ul>
+            <li>Workout records (type: "Mind and Body") for each completed movement</li>
+            <li>Active energy burned (estimated at approximately 3 calories per minute of movement)</li>
+            <li>Workout metadata: movement name, location category, movement type, and "MoveBreak" brand identifier</li>
+        </ul>
+
+        <p><strong>Data we read from HealthKit:</strong></p>
+        <ul>
+            <li>Apple Stand Hour data — aggregate count of hours stood today</li>
+            <li>Time since last recorded stand event</li>
+        </ul>
+
+        <p><strong>HealthKit data commitments (per Apple's requirements):</strong></p>
+        <ul>
+            <li>We will <strong>never</strong> use HealthKit data for advertising or marketing purposes</li>
+            <li>We will <strong>never</strong> sell HealthKit data to third parties, including data brokers, advertising networks, or analytics providers</li>
+            <li>We will <strong>never</strong> share HealthKit data with third parties for any purpose unrelated to providing health or fitness functionality to you</li>
+            <li>We will <strong>never</strong> use HealthKit data for purposes not disclosed in this Privacy Policy</li>
+            <li>HealthKit data is processed and used solely on your device to provide the features described above</li>
+        </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="p5">
+        <div class="section-number">Section 5</div>
+        <h2>Calendar Data</h2>
+        <p>If you enable the "Skip during meetings" feature, MoveBreak requests read-only access to your device calendar through Apple's EventKit framework.</p>
+
+        <p><strong>What we access:</strong></p>
+        <ul>
+            <li>Start and end times of non-all-day calendar events for the current day and the next day</li>
+        </ul>
+
+        <p><strong>What we do NOT access:</strong></p>
+        <ul>
+            <li>Event titles, descriptions, or notes</li>
+            <li>Attendee names, email addresses, or contact details</li>
+            <li>Event locations or URLs</li>
+            <li>Calendar names or account information</li>
+            <li>Recurring event patterns</li>
+        </ul>
+
+        <p>Calendar data is processed in memory, used solely to determine busy periods for notification scheduling, and is never persisted to storage or transmitted anywhere. You can revoke calendar access at any time through Settings → Privacy & Security → Calendars.</p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section" id="p6">
+        <div class="section-number">Section 6</div>
+        <h2>Notifications & On-Device AI</h2>
+        <p><strong>Notification scheduling:</strong> MoveBreak schedules local notifications using Apple's UserNotifications framework. Notifications are created and scheduled entirely on your device. No notification data is sent to our servers or to any push notification service operated by us.</p>
+
+        <p><strong>Notification personalization:</strong> To create personalized notification messages, the App uses contextual data including your first name, notification tone preference, current streak, movement count, problem body areas, and time of day. This data is processed locally.</p>
+
+        <p><strong>On-device AI:</strong> On devices running iOS 26 or later with Apple Intelligence support, MoveBreak may use Apple's on-device Foundation Models framework to generate notification text. This processing occurs entirely on your device's neural engine. No data is transmitted to Apple's servers, Hatchling Creative's servers, or any third party for AI processing. On unsupported devices, pre-written message templates are used instead.</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section" id="p7">
+        <div class="section-number">Section 7</div>
+        <h2>Subscription & Payment Data</h2>
+        <p>MoveBreak Premium subscriptions are processed entirely through Apple's App Store using StoreKit 2. We do not collect, process, or store any financial information, including:</p>
+        <ul>
+            <li>Credit card or debit card numbers</li>
+            <li>Bank account information</li>
+            <li>Apple ID credentials</li>
+            <li>Billing addresses</li>
+        </ul>
+        <p>The only subscription-related data stored locally on your device is your current subscription status (active or inactive), which is verified through Apple's transaction verification system. For Apple's payment data practices, please refer to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section" id="p8">
+        <div class="section-number">Section 8</div>
+        <h2>Third-Party Services</h2>
+        <p>MoveBreak uses the following third-party components:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Purpose</th>
+                    <th>Data Access</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Service"><strong>Apple StoreKit 2</strong></td>
+                    <td data-label="Purpose">Subscription management and payment processing</td>
+                    <td data-label="Data Access">Transaction data processed by Apple</td>
+                </tr>
+                <tr>
+                    <td data-label="Service"><strong>Apple HealthKit</strong></td>
+                    <td data-label="Purpose">Workout logging and stand hour tracking</td>
+                    <td data-label="Data Access">Health data on-device only (with permission)</td>
+                </tr>
+                <tr>
+                    <td data-label="Service"><strong>Apple EventKit</strong></td>
+                    <td data-label="Purpose">Calendar busy period detection</td>
+                    <td data-label="Data Access">Event times on-device only (with permission)</td>
+                </tr>
+                <tr>
+                    <td data-label="Service"><strong>Apple Foundation Models</strong></td>
+                    <td data-label="Purpose">On-device AI for notification text generation</td>
+                    <td data-label="Data Access"><span class="badge badge-none">No data shared</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Service"><strong>Lottie (lottie-ios)</strong></td>
+                    <td data-label="Purpose">Exercise animation rendering</td>
+                    <td data-label="Data Access"><span class="badge badge-none">No data shared</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>MoveBreak does <strong>not</strong> use any third-party analytics services (such as Firebase Analytics, Amplitude, or Mixpanel), crash reporting tools (such as Crashlytics or Sentry), advertising networks, attribution or tracking SDKs, or social media SDKs.</p>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section" id="p9">
+        <div class="section-number">Section 9</div>
+        <h2>Data Sharing & Disclosure</h2>
+
+        <div class="highlight">
+            <p>We do not sell, rent, trade, or otherwise share your personal data with any third party.</p>
+        </div>
+
+        <p>Because MoveBreak operates without a backend server and stores all data locally on your device, there is no mechanism through which we could access, share, or sell your personal information. The only circumstances under which your data might be disclosed are:</p>
+        <ul>
+            <li><strong>Apple HealthKit</strong> — Workout data you choose to write to HealthKit becomes available to other apps you have authorized through the Health app, subject to Apple's HealthKit sharing controls</li>
+            <li><strong>iCloud Backup</strong> — If you use iCloud Backup, your device backup may include MoveBreak's local data, subject to Apple's iCloud encryption and privacy practices</li>
+            <li><strong>Legal requirements</strong> — We would comply with valid legal process (such as a court order or subpoena) requiring disclosure. However, since we do not possess your data, we would have no data to produce in response to such requests</li>
+        </ul>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section" id="p10">
+        <div class="section-number">Section 10</div>
+        <h2>Data Retention & Deletion</h2>
+        <p><strong>Local data:</strong> Your data persists on your device for as long as MoveBreak is installed. You have full control over your data at all times.</p>
+
+        <p><strong>To delete all MoveBreak data:</strong></p>
+        <ul>
+            <li>Delete the MoveBreak app from your device. This permanently removes all locally stored data including your preferences, movement history, streaks, and favorites.</li>
+            <li>To remove HealthKit data written by MoveBreak, go to Settings → Health → Data Access & Devices → MoveBreak → Delete All Data from MoveBreak.</li>
+        </ul>
+
+        <p><strong>Subscription data:</strong> Your subscription status is managed by Apple. Canceling your subscription or deleting the app does not automatically trigger a refund. Subscription management is handled through your Apple ID account settings.</p>
+
+        <p>Because we do not store your data on our servers, there is no server-side data to request deletion of.</p>
+    </div>
+
+    <!-- Section 11 -->
+    <div class="section" id="p11">
+        <div class="section-number">Section 11</div>
+        <h2>Children's Privacy</h2>
+        <p>MoveBreak is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. Since MoveBreak does not transmit data to our servers, we cannot identify whether a user is a child.</p>
+        <p>If you are a parent or guardian and believe your child under 13 is using MoveBreak, the most effective action is to delete the app from the child's device, which will remove all stored data. You may also contact us at the address below with any concerns.</p>
+    </div>
+
+    <!-- Section 12 -->
+    <div class="section" id="p12">
+        <div class="section-number">Section 12</div>
+        <h2>International Users</h2>
+        <p>MoveBreak is available internationally through the Apple App Store. Because all data processing occurs locally on your device and we do not operate servers that receive your data, there is no cross-border data transfer associated with your use of MoveBreak.</p>
+        <p>Your subscription transactions are processed by Apple through their global infrastructure, subject to Apple's own privacy practices and data transfer mechanisms. For information about how Apple handles your payment data internationally, please refer to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Section 13 -->
+    <div class="section" id="p13">
+        <div class="section-number">Section 13</div>
+        <h2>Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have rights regarding your personal data. Because MoveBreak stores all data locally on your device and we do not have access to it, you exercise these rights directly through your device:</p>
+        <ul>
+            <li><strong>Right to access</strong> — Your data is visible within the App's settings, progress screens, and library. All data is on your device and accessible to you at all times.</li>
+            <li><strong>Right to correction</strong> — You can modify your name, preferences, and settings directly in the App at any time.</li>
+            <li><strong>Right to deletion</strong> — Delete the App to permanently remove all stored data. Remove HealthKit data through the Health app's settings.</li>
+            <li><strong>Right to portability</strong> — Movement data written to HealthKit can be exported through Apple's Health app. Other in-app data is stored in a local database on your device.</li>
+            <li><strong>Right to object to processing</strong> — You can disable any optional feature (HealthKit, calendar access, notifications) at any time through the App's settings or your device's system settings.</li>
+            <li><strong>Right to restrict processing</strong> — Individual features that access device capabilities can be toggled off independently.</li>
+        </ul>
+    </div>
+
+    <!-- Section 14 -->
+    <div class="section" id="p14">
+        <div class="section-number">Section 14</div>
+        <h2>California Privacy Rights (CCPA/CPRA)</h2>
+        <p>If you are a California resident, the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA) provide you with specific rights regarding your personal information.</p>
+
+        <p><strong>Categories of personal information collected:</strong> Identifiers (first name only), health and fitness data (via HealthKit, with permission), and inferences drawn from the above (exercise recommendations).</p>
+
+        <p><strong>Sale or sharing of personal information:</strong> We do <strong>not</strong> sell or share your personal information as defined under the CCPA/CPRA. We have not sold or shared personal information in the preceding 12 months.</p>
+
+        <p><strong>Your CCPA/CPRA rights:</strong></p>
+        <ul>
+            <li><strong>Right to know</strong> — This Privacy Policy describes all categories of personal information we collect and how it is used. Since all data is on your device, you already have full access.</li>
+            <li><strong>Right to delete</strong> — Delete the App to remove all data. We hold no server-side data to delete.</li>
+            <li><strong>Right to opt-out of sale/sharing</strong> — We do not sell or share your data, so no opt-out is necessary.</li>
+            <li><strong>Right to non-discrimination</strong> — We will not discriminate against you for exercising your privacy rights.</li>
+        </ul>
+    </div>
+
+    <!-- Section 15 -->
+    <div class="section" id="p15">
+        <div class="section-number">Section 15</div>
+        <h2>European Privacy Rights (GDPR)</h2>
+        <p>If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, the General Data Protection Regulation (GDPR) and equivalent local laws provide you with additional rights.</p>
+
+        <p><strong>Legal basis for processing:</strong></p>
+        <ul>
+            <li><strong>Contract performance</strong> — Processing your preferences and activity data is necessary to deliver the App's core functionality that you have requested.</li>
+            <li><strong>Consent</strong> — HealthKit access, calendar access, and notification delivery each require your explicit opt-in consent, which you may withdraw at any time.</li>
+            <li><strong>Legitimate interest</strong> — Verifying subscription status to enforce the terms of our free and premium tiers.</li>
+        </ul>
+
+        <p><strong>Data controller:</strong> Hatchling Creative is the data controller. However, because all processing occurs on your device and we do not receive or store your data on our servers, our role as controller is limited to the design and functionality of the App itself.</p>
+
+        <p><strong>Data transfers:</strong> MoveBreak does not transfer your personal data outside of your device. Subscription transactions processed by Apple may involve transfers subject to Apple's own GDPR compliance measures, including Standard Contractual Clauses.</p>
+
+        <p><strong>Your GDPR rights</strong> — including access, rectification, erasure, restriction, portability, and objection — can be exercised as described in Section 13 above. For additional inquiries, contact us at the address below.</p>
+    </div>
+
+    <!-- Section 16 -->
+    <div class="section" id="p16">
+        <div class="section-number">Section 16</div>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we make changes, we will update the "Effective" date at the top of this page.</p>
+        <p>For material changes that affect how we handle your data, we will make reasonable efforts to notify you through the App or by other appropriate means before the changes take effect. Your continued use of MoveBreak after the updated Privacy Policy becomes effective constitutes your acceptance of the changes.</p>
+        <p>We encourage you to review this Privacy Policy periodically.</p>
+    </div>
+
+    <!-- Section 17 -->
+    <div class="section" id="p17">
+        <div class="section-number">Section 17</div>
+        <h2>Contact Us</h2>
+        <p>If you have questions, concerns, or requests related to this Privacy Policy or MoveBreak's data practices, please contact us:</p>
+        <div class="card">
+            <p><strong>Hatchling Creative</strong></p>
+            <p>Email: <a href="mailto:privacy@hatchlingcreative.com">privacy@hatchlingcreative.com</a></p>
+            <p>Web: <a href="https://hatchlingcreative.com">hatchlingcreative.com</a></p>
+        </div>
+        <p>We aim to respond to all privacy-related inquiries within 30 days.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 Hatchling Creative. All rights reserved.</p>
+    <p><a href="https://hatchlingcreative.com/movebreak/privacy">Privacy Policy</a> · <a href="https://hatchlingcreative.com/movebreak/terms">Terms of Use</a></p>
+</div>
+
+</body>
+</html>

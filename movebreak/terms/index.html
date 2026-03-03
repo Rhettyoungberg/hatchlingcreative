@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveBreak — Terms of Use</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* Animated gradient orbs */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            filter: blur(80px);
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .orb-1 {
+            width: 60vmax;
+            height: 60vmax;
+            background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+            top: -20%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 50vmax;
+            height: 50vmax;
+            background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+            top: 50%;
+            right: -20%;
+        }
+
+        .orb-3 {
+            width: 45vmax;
+            height: 45vmax;
+            background: radial-gradient(circle, #2563eb 0%, transparent 70%);
+            bottom: -20%;
+            left: 30%;
+        }
+
+        .hero {
+            padding: 80px 24px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #a78bfa;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            position: relative;
+        }
+
+        .effective-date {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a78bfa;
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: #a78bfa;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .section p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 14px;
+        }
+
+        .section ul, .section ol {
+            margin: 12px 0 16px 24px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            background: rgba(167, 139, 250, 0.08);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .highlight p {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .toc li {
+            font-size: 15px;
+            color: #a78bfa;
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .toc a {
+            color: #a78bfa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: #c4b5fd;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #c4b5fd;
+        }
+
+        a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #c4b5fd;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #a78bfa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gradient-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+</div>
+
+<div class="hero">
+    <a href="/" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="hero-icon"><i class="fa-solid fa-file-contract"></i></div>
+    <h1>Terms of Use</h1>
+    <p>MoveBreak by Hatchling Creative</p>
+</div>
+
+<div class="container">
+
+    <span class="effective-date">Effective: March 3, 2026</span>
+
+    <p class="intro">
+        Welcome to MoveBreak. These Terms of Use ("Terms") govern your access to and use of the MoveBreak mobile application ("App"), developed and operated by Hatchling Creative ("we," "us," or "our"). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.
+    </p>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+            <li><a href="#s1">Acceptance of Terms</a></li>
+            <li><a href="#s2">Description of Service</a></li>
+            <li><a href="#s3">Eligibility</a></li>
+            <li><a href="#s4">User Accounts & Data</a></li>
+            <li><a href="#s5">Free & Premium Tiers</a></li>
+            <li><a href="#s6">Subscriptions & Billing</a></li>
+            <li><a href="#s7">HealthKit Integration</a></li>
+            <li><a href="#s8">Calendar Integration</a></li>
+            <li><a href="#s9">Notifications</a></li>
+            <li><a href="#s10">On-Device AI Features</a></li>
+            <li><a href="#s11">Acceptable Use</a></li>
+            <li><a href="#s12">Intellectual Property</a></li>
+            <li><a href="#s13">Health & Fitness Disclaimer</a></li>
+            <li><a href="#s14">Disclaimer of Warranties</a></li>
+            <li><a href="#s15">Limitation of Liability</a></li>
+            <li><a href="#s16">Indemnification</a></li>
+            <li><a href="#s17">Termination</a></li>
+            <li><a href="#s18">Changes to These Terms</a></li>
+            <li><a href="#s19">Governing Law</a></li>
+            <li><a href="#s20">Contact Information</a></li>
+        </ol>
+    </div>
+
+    <div class="section" id="s1">
+        <div class="section-number">Section 1</div>
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing or using MoveBreak, you confirm that you have read, understood, and agree to these Terms, as well as our <a href="/movebreak/privacy">Privacy Policy</a>. These Terms constitute a legally binding agreement between you and Hatchling Creative.</p>
+        <p>We may update these Terms from time to time. Your continued use of the App after any changes constitutes acceptance of the updated Terms. We will make reasonable efforts to notify you of material changes through the App or by other appropriate means.</p>
+    </div>
+
+    <div class="section" id="s2">
+        <div class="section-number">Section 2</div>
+        <h2>Description of Service</h2>
+        <p>MoveBreak is a health and wellness application designed to help desk workers incorporate short, 60-second micro-movements into their workday. The App provides:</p>
+        <ul>
+            <li>A curated library of exercises and stretches tailored to various locations (desk, car, airplane, home)</li>
+            <li>Intelligent movement selection based on your body areas of concern, energy level, and location</li>
+            <li>Customizable reminders to move throughout your workday</li>
+            <li>Activity tracking including movement streaks, completion history, and daily statistics</li>
+            <li>Apple HealthKit integration to log workouts and read stand hour data</li>
+            <li>Calendar integration to intelligently pause reminders during meetings</li>
+            <li>Personalized notification content adapted to your preferences</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s3">
+        <div class="section-number">Section 3</div>
+        <h2>Eligibility</h2>
+        <p>You must be at least 13 years of age to use MoveBreak. If you are under the age of 18, you must have the consent of a parent or legal guardian. By using the App, you represent and warrant that you meet these eligibility requirements.</p>
+        <p>If you are using MoveBreak on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+    </div>
+
+    <div class="section" id="s4">
+        <div class="section-number">Section 4</div>
+        <h2>User Accounts & Data</h2>
+        <p>MoveBreak does not require you to create an account or provide an email address. The App stores your preferences and activity data locally on your device using Apple's SwiftData framework. This includes:</p>
+        <ul>
+            <li>Your first name (used for personalized notifications)</li>
+            <li>Work schedule preferences (start time, end time)</li>
+            <li>Body area focus preferences</li>
+            <li>Movement completion history and streak data</li>
+            <li>Favorite movements</li>
+            <li>Notification, sound, and haptic preferences</li>
+        </ul>
+        <p>All of this data is stored exclusively on your device and is not transmitted to our servers. You are responsible for maintaining the security of your device. If you delete the App, all locally stored data will be permanently removed.</p>
+    </div>
+
+    <div class="section" id="s5">
+        <div class="section-number">Section 5</div>
+        <h2>Free & Premium Tiers</h2>
+        <p>MoveBreak is available in two tiers:</p>
+
+        <div class="card">
+            <h3>Free Tier</h3>
+            <p>Includes access to 3 exercises per location (desk, car, airplane, home), the movement library in browse mode, Apple HealthKit integration, and basic movement tracking.</p>
+        </div>
+
+        <div class="card">
+            <h3>Premium Tier</h3>
+            <p>Unlocks the full library of 100+ exercises and stretches, personalized smart notifications and reminders, streak tracking and detailed analytics, customizable notification tones and persistence modes, and all future premium features.</p>
+        </div>
+
+        <p>We reserve the right to modify the features included in each tier. If we make changes that materially reduce the functionality of the Premium tier, existing subscribers will continue to receive the features available at the time of their most recent subscription renewal until the end of their current billing period.</p>
+    </div>
+
+    <div class="section" id="s6">
+        <div class="section-number">Section 6</div>
+        <h2>Subscriptions & Billing</h2>
+
+        <div class="highlight">
+            <p>All subscriptions are processed through Apple's App Store and are subject to Apple's terms and conditions for auto-renewable subscriptions.</p>
+        </div>
+
+        <p><strong>Pricing.</strong> The current subscription price is displayed on the paywall screen within the App and on the App Store product page. Prices may vary by region and are subject to change. Any price changes will take effect at the start of your next billing period, and you will be notified in advance by Apple.</p>
+
+        <p><strong>Auto-Renewal.</strong> Your MoveBreak Premium subscription automatically renews unless you cancel it at least 24 hours before the end of the current billing period. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period at the rate of the selected plan.</p>
+
+        <p><strong>Free Trial.</strong> If offered, a free trial period may be available. If you do not cancel before the free trial ends, your subscription will automatically convert to a paid subscription at the posted rate.</p>
+
+        <p><strong>Managing Your Subscription.</strong> You can manage or cancel your subscription at any time through your Apple ID account settings (Settings → [Your Name] → Subscriptions) or through the App Store. Cancellation takes effect at the end of the current billing period.</p>
+
+        <p><strong>Refunds.</strong> All purchases are processed by Apple. Refund requests must be submitted to Apple directly through their support channels at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. We do not have the ability to process refunds on Apple's behalf.</p>
+
+        <p><strong>Restore Purchases.</strong> If you reinstall MoveBreak or switch devices, you can restore your active subscription using the "Restore Purchases" button in the App's Settings.</p>
+    </div>
+
+    <div class="section" id="s7">
+        <div class="section-number">Section 7</div>
+        <h2>HealthKit Integration</h2>
+        <p>MoveBreak integrates with Apple HealthKit to enhance your experience. This integration is entirely optional and requires your explicit authorization.</p>
+
+        <p><strong>Data We Write.</strong> When you complete a movement, MoveBreak may log it to HealthKit as a "Mind and Body" workout, including estimated active energy burned (approximately 3 calories per minute), and metadata identifying the movement name, location, and type.</p>
+
+        <p><strong>Data We Read.</strong> MoveBreak reads your Apple Stand Hour data to provide context for notifications and activity scoring. No other health data is accessed.</p>
+
+        <p>In accordance with Apple's HealthKit guidelines, MoveBreak will never use HealthKit data for advertising, share HealthKit data with third parties, or sell HealthKit data under any circumstances. HealthKit data is accessed solely to provide the features described above.</p>
+    </div>
+
+    <div class="section" id="s8">
+        <div class="section-number">Section 8</div>
+        <h2>Calendar Integration</h2>
+        <p>MoveBreak can optionally access your device calendar to intelligently pause reminders during scheduled meetings. This feature requires your explicit permission and can be disabled at any time in Settings.</p>
+        <p>When enabled, MoveBreak reads only the start and end times of non-all-day events for the current day and the following day. It does not read event titles, descriptions, attendees, locations, or any other event details. Calendar data is processed locally on your device and is never stored or transmitted.</p>
+    </div>
+
+    <div class="section" id="s9">
+        <div class="section-number">Section 9</div>
+        <h2>Notifications</h2>
+        <p>MoveBreak Premium subscribers may enable personalized movement reminders. Notifications are scheduled locally on your device using Apple's UserNotifications framework. The content, timing, and frequency of notifications are determined by your settings:</p>
+        <ul>
+            <li><strong>Persistence Modes:</strong> "Once" (single reminder per interval), "A Couple Times" (up to 2 follow-ups), or "Hound Me" (up to 5 follow-ups)</li>
+            <li><strong>Tone Settings:</strong> "Motivational" (encouraging), "Upbuilding" (warm and supportive), or "Bully" (firm and demanding)</li>
+        </ul>
+        <p>You can adjust these settings or disable notifications entirely at any time. No notification data is sent to external servers.</p>
+    </div>
+
+    <div class="section" id="s10">
+        <div class="section-number">Section 10</div>
+        <h2>On-Device AI Features</h2>
+        <p>On supported devices running iOS 26 or later, MoveBreak may use Apple's on-device Foundation Models framework to generate personalized notification messages. This processing occurs entirely on your device using Apple's system language model.</p>
+        <p>No personal data is sent to any server — including Hatchling Creative's or Apple's — for AI processing. On devices that do not support on-device AI, the App uses a curated library of pre-written messages as a fallback.</p>
+    </div>
+
+    <div class="section" id="s11">
+        <div class="section-number">Section 11</div>
+        <h2>Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the App</li>
+            <li>Modify, adapt, translate, or create derivative works based on the App</li>
+            <li>Circumvent, disable, or interfere with any security, licensing, or access-control features of the App, including subscription verification</li>
+            <li>Use the App for any unlawful purpose or in violation of any applicable laws or regulations</li>
+            <li>Distribute, sublicense, rent, lease, or lend the App to third parties</li>
+            <li>Remove, alter, or obscure any proprietary notices, labels, or marks in the App</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s12">
+        <div class="section-number">Section 12</div>
+        <h2>Intellectual Property</h2>
+        <p>All content, features, and functionality of MoveBreak — including but not limited to the exercise library, movement instructions, user interface design, graphics, animations, text, and software code — are owned by Hatchling Creative and are protected by copyright, trademark, and other intellectual property laws.</p>
+        <p>The exercise instructions in MoveBreak are informed by established health organization guidelines, including NASA's DeskFit program. The specific presentation, arrangement, and curated selection of movements are original works of Hatchling Creative.</p>
+        <p>You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with these Terms.</p>
+    </div>
+
+    <div class="section" id="s13">
+        <div class="section-number">Section 13</div>
+        <h2>Health & Fitness Disclaimer</h2>
+
+        <div class="highlight">
+            <p>MoveBreak is a wellness tool, not a medical device. The App does not provide medical advice, diagnose conditions, or prescribe treatments.</p>
+        </div>
+
+        <p>The exercises and stretches provided through MoveBreak are designed to be low-intensity, short-duration movements suitable for general adult populations. However, you should:</p>
+        <ul>
+            <li>Consult your physician or healthcare provider before beginning any exercise program, particularly if you have pre-existing medical conditions, injuries, or physical limitations</li>
+            <li>Stop any movement immediately if you experience pain, dizziness, shortness of breath, or discomfort</li>
+            <li>Use your own judgment regarding the suitability of any exercise for your physical condition</li>
+            <li>Not rely on MoveBreak as a substitute for professional medical advice, diagnosis, or treatment</li>
+        </ul>
+        <p>Hatchling Creative is not responsible for any injuries, health complications, or other adverse effects that may result from performing movements suggested by the App. You assume all risk associated with your use of the App's exercise content.</p>
+    </div>
+
+    <div class="section" id="s14">
+        <div class="section-number">Section 14</div>
+        <h2>Disclaimer of Warranties</h2>
+        <p>MoveBreak is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied. To the fullest extent permitted by applicable law, Hatchling Creative disclaims all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and accuracy.</p>
+        <p>We do not warrant that the App will be uninterrupted, error-free, secure, or free of harmful components. We do not warrant that any results obtained from the use of the App will be accurate or reliable.</p>
+    </div>
+
+    <div class="section" id="s15">
+        <div class="section-number">Section 15</div>
+        <h2>Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, in no event shall Hatchling Creative, its officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, personal injury, or property damage, arising out of or in connection with your use of or inability to use the App.</p>
+        <p>In no event shall our total aggregate liability exceed the amount you have paid to us in the twelve (12) months immediately preceding the event giving rise to the claim, or fifty U.S. dollars ($50), whichever is greater.</p>
+        <p>Some jurisdictions do not allow the limitation or exclusion of liability for certain types of damages. In such jurisdictions, our liability shall be limited to the greatest extent permitted by law.</p>
+    </div>
+
+    <div class="section" id="s16">
+        <div class="section-number">Section 16</div>
+        <h2>Indemnification</h2>
+        <p>You agree to indemnify, defend, and hold harmless Hatchling Creative and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or in any way connected with your use of the App, your violation of these Terms, or your violation of any rights of a third party.</p>
+    </div>
+
+    <div class="section" id="s17">
+        <div class="section-number">Section 17</div>
+        <h2>Termination</h2>
+        <p>We may suspend or terminate your access to MoveBreak at any time, with or without cause, and with or without notice. Upon termination, your right to use the App ceases immediately.</p>
+        <p>You may terminate your use of the App at any time by deleting it from your device. If you have an active subscription, you must also cancel it through your Apple ID account settings to avoid future charges.</p>
+        <p>Sections that by their nature should survive termination — including Disclaimer of Warranties, Limitation of Liability, Indemnification, and Governing Law — shall survive any termination of these Terms.</p>
+    </div>
+
+    <div class="section" id="s18">
+        <div class="section-number">Section 18</div>
+        <h2>Changes to These Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. If we make material changes, we will provide notice through the App, by updating the "Effective" date at the top of this page, or by other reasonable means. Your continued use of MoveBreak after the revised Terms become effective constitutes your acceptance of the changes.</p>
+        <p>We encourage you to review these Terms periodically for updates.</p>
+    </div>
+
+    <div class="section" id="s19">
+        <div class="section-number">Section 19</div>
+        <h2>Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of Utah, United States, without regard to its conflict of laws provisions. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the state and federal courts located in Utah.</p>
+        <p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions shall remain in full force and effect.</p>
+    </div>
+
+    <div class="section" id="s20">
+        <div class="section-number">Section 20</div>
+        <h2>Contact Information</h2>
+        <p>If you have questions about these Terms, please contact us:</p>
+        <div class="card">
+            <p><strong>Hatchling Creative</strong></p>
+            <p>Email: <a href="mailto:support@hatchlingcreative.com">support@hatchlingcreative.com</a></p>
+            <p>Web: <a href="https://hatchlingcreative.com">hatchlingcreative.com</a></p>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 Hatchling Creative. All rights reserved.</p>
+    <p><a href="/movebreak/privacy">Privacy Policy</a> · <a href="/movebreak/terms">Terms of Use</a></p>
+</div>
+
+</body>
+</html>
