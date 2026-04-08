@@ -151,51 +151,6 @@
             fill: url(#logoGradient);
         }
 
-        /* Wing flap animation */
-        .wing, .beak {
-            transform-box: fill-box;
-            transition: transform 0.3s ease;
-        }
-
-        .wing-right {
-            transform-origin: 0% 100%;
-        }
-
-        .wing-left {
-            transform-origin: 100% 0%;
-        }
-
-        .beak {
-            transform-origin: 50% 100%;
-        }
-
-        .logo:hover .wing-right {
-            animation: flapRight 0.4s ease-in-out infinite alternate;
-        }
-
-        .logo:hover .wing-left {
-            animation: flapLeft 0.4s ease-in-out infinite alternate;
-        }
-
-        .logo:hover .beak {
-            animation: beakBob 0.8s ease-in-out infinite alternate;
-        }
-
-        @keyframes flapRight {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-12deg); }
-        }
-
-        @keyframes flapLeft {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(10deg); }
-        }
-
-        @keyframes beakBob {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-2px); }
-        }
-
         .card {
             position: relative;
             background: rgba(255, 255, 255, 0.03);
@@ -573,21 +528,8 @@
                 </defs>
                 <g transform="scale(8.46) translate(10, 10)">
                     <g id="logoIcon" class="logo-icon" transform="matrix(1.279,0,0,1.279,114.208,-15.351)" fill="#ffffff">
-                        <g transform="translate(0,-952.362)">
-                            <!-- Right wing -->
-                            <path class="wing wing-right" d="M 60.7828,964.36215 l 27.1809,0.8834 -27.1809,25.9958 z"/>
-                            <!-- Left wing -->
-                            <path class="wing wing-left" d="M 58.8083,965.8135 l 0,26.7845 -25.2681,0 c 8.6166,-8.7334 16.8796,-17.8103 25.2681,-26.7845 z"/>
-                            <!-- Beak -->
-                            <path class="beak" d="M 86.5136,969.4415 l 3.4864,1.1989 -12.5877,7.4768 z"/>
-                            <!-- Left body -->
-                            <path d="M 18.3301,972.4071 l 5.5226,0 12.8654,14.0705 -5.9854,6.1204 -12.4026,0 c 9e-4,-6.7347 0,-13.4597 0,-20.1909 z"/>
-                            <!-- Tail -->
-                            <path d="M 16.3555,973.6375 l 0,5.8364 -6.3555,0 z"/>
-                            <!-- Belly -->
-                            <path d="M 19.7185,994.6171 l 38.627,0 -10.7675,29.43465 z"/>
-                            <!-- Right body -->
-                            <path d="M 58.8083,999.1600 l 0,41.20229 -12.5878,-6.8775 c 4.1972,-11.443 8.3886,-22.879 12.5878,-34.32479 z"/>
+                        <g xmlns="http://www.w3.org/2000/svg" transform="translate(0,-952.362)">
+                            <path d="m 60.7828,964.36215 27.1809,0.8834 -27.1809,25.9958 z m -1.9745,1.4513 0,26.7845 -25.2681,0 c 8.6166,-8.7334 16.8796,-17.8103 25.2681,-26.7845 z m 27.7053,3.628 3.4864,1.1989 -12.5877,7.4768 z m -68.1835,2.9656 5.5226,0 12.8654,14.0705 -5.9854,6.1204 -12.4026,0 c 9e-4,-6.7347 0,-13.4597 0,-20.1909 z m -1.9746,1.2304 0,5.8364 -6.3555,0 z m 3.363,20.9796 38.627,0 -10.7675,29.43465 z m 39.0898,4.54286 0,41.20229 -12.5878,-6.8775 c 4.1972,-11.443 8.3886,-22.879 12.5878,-34.32479 z"/>
                         </g>
                     </g>
                     <g transform="matrix(3.442,0,0,3.442,-0.442,92.494)" fill="#ffffff">
