@@ -45,7 +45,7 @@ export default function Hero() {
                   delay: 0.1 + i * 0.12,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-white"
+                className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.0] tracking-tight text-white"
               >
                 {line}
               </motion.h1>
@@ -60,7 +60,7 @@ export default function Hero() {
                 delay: 0.34,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-normal italic leading-[1.2] tracking-tight text-gradient"
+              className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-normal italic leading-[1.0] tracking-tight text-gradient"
             >
               feel alive.
             </motion.h1>
