@@ -28,7 +28,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/30"
         >
           Digital Studio
@@ -41,8 +41,8 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 0.2 + i * 0.2,
+                  duration: 0.55,
+                  delay: 0.1 + i * 0.12,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
                 className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.0] tracking-tight text-white"
@@ -56,8 +56,8 @@ export default function Hero() {
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{
-                duration: 0.8,
-                delay: 0.6,
+                duration: 0.55,
+                delay: 0.34,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-normal italic leading-[1.0] tracking-tight text-gradient"
@@ -68,9 +68,9 @@ export default function Hero() {
         </div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
           className="mt-8 max-w-md font-sans text-base text-white/45 leading-relaxed"
         >
           App development, AI integration, and design for companies that refuse
@@ -80,9 +80,9 @@ export default function Hero() {
 
       {/* Bottom bar */}
       <motion.div
-        initial={{ y: 20, opacity: 0 }}
+        initial={{ y: 12, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.0 }}
+        transition={{ duration: 0.4, delay: 0.6 }}
         className="relative z-10 flex items-center justify-between px-6 md:px-12 py-6 border-t border-white/[0.06]"
       >
         <div className="flex gap-6 font-sans text-[11px] tracking-[2px] uppercase text-white/25">

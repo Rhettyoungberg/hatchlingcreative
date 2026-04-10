@@ -61,15 +61,15 @@ export default function Process() {
           {phases.map((phase, i) => (
             <motion.div
               key={phase.num}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={
                 isInView
                   ? {
                       opacity: 1,
                       y: 0,
                       transition: {
-                        duration: 0.5,
-                        delay: 0.3 + i * 0.15,
+                        duration: 0.35,
+                        delay: 0.1 + i * 0.08,
                         ease: [0.25, 0.46, 0.45, 0.94],
                       },
                     }
@@ -93,7 +93,7 @@ export default function Process() {
                     ? {
                         width: "100%",
                         transition: {
-                          duration: 0.8,
+                          duration: 0.5,
                           delay: 0.6 + i * 0.15,
                           ease: "easeOut",
                         },

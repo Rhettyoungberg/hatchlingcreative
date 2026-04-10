@@ -66,13 +66,13 @@ export default function Services() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={{
-                hidden: { opacity: 0, x: -40 },
+                hidden: { opacity: 0, x: -20 },
                 visible: {
                   opacity: 1,
                   x: 0,
                   transition: {
-                    duration: 0.6,
-                    delay: 0.3 + i * 0.15,
+                    duration: 0.4,
+                    delay: 0.15 + i * 0.08,
                     ease: [0.25, 0.46, 0.45, 0.94],
                   },
                 },

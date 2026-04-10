@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -25,7 +26,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 1.2 }}
+      transition={{ duration: 0.4, delay: 0.3 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-void/90 backdrop-blur-lg border-b border-white/[0.06]"
@@ -34,9 +35,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-5">
         <a href="#" className="flex items-center gap-3" data-cursor="Home">
-          <span className="font-sans text-[13px] font-semibold tracking-[3px] uppercase text-white/90">
-            Hatchling
-          </span>
+          <Image
+            src="/NewLogo.svg"
+            alt="Hatchling Creative"
+            width={160}
+            height={32}
+            className="h-6 w-auto brightness-0 invert"
+            priority
+          />
         </a>
 
         {/* Desktop nav */}
