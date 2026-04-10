@@ -31,7 +31,7 @@ const services = [
       "LLMs, computer vision & predictive analytics. Intelligent, not gimmicky.",
     expanded: {
       detail:
-        "We integrate AI where it actually adds value — not as a buzzword checkbox. From on-device ML models to cloud-based LLM pipelines, we build intelligent features that feel natural and solve real problems.",
+        "We integrate AI where it actually adds value, not as a buzzword checkbox. From on-device ML models to cloud-based LLM pipelines, we build intelligent features that feel natural and solve real problems.",
       capabilities: [
         "LLM integration & fine-tuning",
         "Computer vision & image recognition",
@@ -50,7 +50,7 @@ const services = [
       "Scalable infrastructure, automation & DevOps. Your product stays fast at any scale.",
     expanded: {
       detail:
-        "We architect systems that don't fall over at 2 AM. From CI/CD pipelines to auto-scaling infrastructure, we make sure your product is fast, reliable, and cheap to operate — so you can focus on building, not firefighting.",
+        "We architect systems that don't fall over at 2 AM. From CI/CD pipelines to auto-scaling infrastructure, we make sure your product is fast, reliable, and cheap to operate so you can focus on building, not firefighting.",
       capabilities: [
         "Cloud architecture (AWS, GCP, Azure)",
         "CI/CD pipeline design",
@@ -69,7 +69,7 @@ const services = [
       "Human-centered interfaces & design systems. Complex things made simple.",
     expanded: {
       detail:
-        "Great design isn't decoration — it's how things work. We create interfaces that feel intuitive from the first tap, backed by design systems that keep your product consistent as it grows.",
+        "Great design isn't decoration. It's how things work. We create interfaces that feel intuitive from the first tap, backed by design systems that keep your product consistent as it grows.",
       capabilities: [
         "User research & journey mapping",
         "Wireframing & prototyping",

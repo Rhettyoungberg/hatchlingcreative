@@ -62,7 +62,7 @@ export default function About() {
             >
               We&rsquo;re a small team of engineers and designers who believe
               technology should feel as good as it works. Every product we build
-              is a bet that craft still matters — that users can tell the
+              is a bet that craft still matters. That users can tell the
               difference between something built with care and something shipped
               to meet a deadline.
             </motion.p>

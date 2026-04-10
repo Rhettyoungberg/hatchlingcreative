@@ -49,7 +49,7 @@ export default function Contact() {
         >
           We&rsquo;re always interested in hearing about new projects.
           <br />
-          Drop us a line — no pitch decks required.
+          Drop us a line. No pitch decks required.
         </motion.p>
 
         <motion.div
