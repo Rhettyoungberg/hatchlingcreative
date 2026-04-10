@@ -32,17 +32,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-5">
-        <a href="#" className="flex items-center gap-2.5" data-cursor="Home">
-          <svg width="28" height="28" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" className="fill-white">
+        <a href="#" className="flex items-center" data-cursor="Home">
+          <svg width="32" height="32" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" className="fill-white">
             <g transform="scale(13.5) translate(-5.5555488798353405, -5.55552503797743)">
               <g transform="translate(0,-952.36218)">
                 <path d="m 60.7828,964.36215 27.1809,0.8834 -27.1809,25.9958 z m -1.9745,1.4513 0,26.7845 -25.2681,0 c 8.6166,-8.7334 16.8796,-17.8103 25.2681,-26.7845 z m 27.7053,3.628 3.4864,1.1989 -12.5877,7.4768 z m -68.1835,2.9656 5.5226,0 12.8654,14.0705 -5.9854,6.1204 -12.4026,0 c 9e-4,-6.7347 0,-13.4597 0,-20.1909 z m -1.9746,1.2304 0,5.8364 -6.3555,0 z m 3.363,20.9796 38.627,0 -10.7675,29.43465 z m 39.0898,4.54286 0,41.20229 -12.5878,-6.8775 c 4.1972,-11.443 8.3886,-22.879 12.5878,-34.32479 z" />
               </g>
             </g>
           </svg>
-          <span className="font-sans text-[13px] font-semibold tracking-[3px] uppercase text-white/90">
-            Hatchling
-          </span>
         </a>
 
         {/* Desktop nav */}
