@@ -36,7 +36,7 @@ export default function Hero() {
 
         <div className="mt-5">
           {headlineWords.map((line, i) => (
-            <div key={line} className="overflow-hidden pb-1">
+            <div key={line} style={{ clipPath: "inset(-10% -10% -15% -10%)" }}>
               <motion.h1
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
@@ -45,13 +45,13 @@ export default function Hero() {
                   delay: 0.1 + i * 0.12,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.05] tracking-tight text-white"
+                className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-white"
               >
                 {line}
               </motion.h1>
             </div>
           ))}
-          <div className="overflow-hidden pb-2">
+          <div style={{ clipPath: "inset(-10% -10% -20% -10%)" }}>
             <motion.h1
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
@@ -60,7 +60,7 @@ export default function Hero() {
                 delay: 0.34,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-normal italic leading-[1.15] tracking-tight text-gradient"
+              className="font-serif text-[clamp(2.5rem,8vw,6rem)] font-normal italic leading-[1.2] tracking-tight text-gradient"
             >
               feel alive.
             </motion.h1>
