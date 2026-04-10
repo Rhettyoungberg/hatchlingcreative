@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/30"
         >
-          Digital Studio
+          Hatchling Creative
         </motion.p>
 
         <div className="mt-5">
