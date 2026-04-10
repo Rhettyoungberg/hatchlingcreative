@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/providers/SmoothScroll";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -52,7 +54,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <CustomCursor />
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
