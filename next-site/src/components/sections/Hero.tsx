@@ -1,17 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 z-0">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent-indigo/[0.08] blur-[100px]" />
+      <div className="absolute top-[40%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent-violet/[0.06] blur-[80px]" />
+    </div>
+  ),
+});
 
 const headlineWords = ["We craft digital", "experiences that"];
 
 export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col justify-between overflow-hidden">
-      {/* Ambient gradient fallback (replaced by R3F in Task 7) */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent-indigo/[0.08] blur-[100px]" />
-        <div className="absolute top-[40%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent-violet/[0.06] blur-[80px]" />
-      </div>
+      <HeroScene />
 
       {/* Spacer for nav */}
       <div className="h-20" />
