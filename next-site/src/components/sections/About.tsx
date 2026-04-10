@@ -8,7 +8,7 @@ import { slideInLeft, slideInRight, staggerContainer } from "@/lib/animations";
 const stats = [
   { value: 12, suffix: "+", label: "Projects Shipped" },
   { value: 3, suffix: "", label: "Years Running" },
-  { value: 100, suffix: "%", label: "Give a Damn" },
+  { value: 100, suffix: "%", label: "Craft Obsessed" },
 ];
 
 export default function About() {
