@@ -9,8 +9,6 @@ export type Bindings = {
   ALLOWED_EMAILS: string;
   COOKIE_DOMAIN: string;
   ENVIRONMENT: string;
-  // Fledgeling local agent: shared bearer token the `fledged` daemon + `fledge sync` present.
-  FLEDGED_TOKEN?: string; // secret
   // App Store Connect (all optional — integration is skipped if unset).
   ASC_KEY_ID?: string; // vars
   ASC_ISSUER_ID?: string; // vars

@@ -6,7 +6,6 @@ import { ingest } from "./ingest";
 import { dashboard } from "./dashboard";
 import { runRollup } from "./analytics";
 import { syncAppStore, ascConfigured } from "./asc";
-import { pipeline } from "./pipeline";
 
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
 
@@ -31,7 +30,6 @@ app.get("/health", (c) => c.json({ ok: true }));
 app.route("/auth", auth);
 app.route("/v1", ingest); // app-authenticated ingest (events, bugs, crashes)
 app.route("/dashboard", dashboard); // session-authenticated dashboard data
-app.route("/api/pipeline", pipeline); // Fledgeling pipeline board + run queue
 
 app.notFound((c) => c.json({ error: "not_found" }, 404));
 app.onError((err, c) => {

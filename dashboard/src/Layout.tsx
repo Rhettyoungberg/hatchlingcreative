@@ -21,14 +21,6 @@ export default function Layout() {
             </div>
           </Link>
           <div className="flex items-center gap-4 text-sm">
-            <Link
-              to="/pipeline"
-              className={
-                loc.pathname === "/pipeline" ? "text-white" : "text-white/50 hover:text-white"
-              }
-            >
-              Pipeline
-            </Link>
             {loc.pathname !== "/" && (
               <Link to="/" className="text-white/50 hover:text-white">
                 ← All apps

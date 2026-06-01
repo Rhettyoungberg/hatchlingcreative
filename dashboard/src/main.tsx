@@ -8,7 +8,6 @@ import Layout from "./Layout";
 import Login from "./pages/Login";
 import Overview from "./pages/Overview";
 import AppDetail from "./pages/AppDetail";
-import PipelineBoard from "./pages/PipelineBoard";
 
 function Protected({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -31,7 +30,6 @@ function App() {
             }
           >
             <Route path="/" element={<Overview />} />
-            <Route path="/pipeline" element={<PipelineBoard />} />
             <Route path="/apps/:appId" element={<AppDetail />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
