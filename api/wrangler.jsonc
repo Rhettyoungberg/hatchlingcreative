@@ -22,11 +22,11 @@
   },
   "vars": {
     // Non-secret config. Secrets (SESSION_SECRET, RESEND_API_KEY) are set via `wrangler secret put`.
-    "DASHBOARD_URL": "http://localhost:5173",
+    "DASHBOARD_URL": "https://hatchling-dashboard.pages.dev",
     "ALLOWED_EMAILS": "rhett@hatchlingcreative.com",
     "COOKIE_DOMAIN": "",
     "RESEND_FROM": "Hatchling <onboarding@resend.dev>",
-    "ENVIRONMENT": "development",
+    "ENVIRONMENT": "production",
     // App Store Connect (non-secret IDs). The .p8 key is set as the ASC_PRIVATE_KEY
     // secret. Leave blank to disable the integration. See docs/APPSTORE_CONNECT.md.
     "ASC_KEY_ID": "",
