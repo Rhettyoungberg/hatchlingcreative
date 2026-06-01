@@ -22,7 +22,13 @@ function cookieOpts(c: AppContext) {
   return {
     httpOnly: true,
     secure,
-    sameSite: "Lax" as const,
+    // Cross-site by default in prod (dashboard on *.pages.dev calling the API on *.workers.dev
+    // sends the session cookie only with SameSite=None;Secure). Lax locally (http) so the
+    // cookie isn't rejected. NOTE: third-party-cookie blockers (Safari ITP, Chrome's phase-out)
+    // can still drop a None cookie across *different* registrable domains — for a fully robust
+    // login, serve the dashboard same-origin with the API (worker static assets) or put both
+    // under one root domain (api.x.com + dashboard.x.com, COOKIE_DOMAIN=.x.com).
+    sameSite: (secure ? "None" : "Lax") as "None" | "Lax",
     path: "/",
     ...(domain ? { domain } : {}),
   };
