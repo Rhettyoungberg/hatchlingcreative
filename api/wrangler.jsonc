@@ -12,7 +12,7 @@
       "binding": "DB",
       "database_name": "hatchling",
       // Replace with the id printed by `npm run db:create`
-      "database_id": "REPLACE_WITH_DATABASE_ID",
+      "database_id": "87d78c7d-feae-44a7-a0ad-ae9872c66daa",
       "migrations_dir": "migrations"
     }
   ],
