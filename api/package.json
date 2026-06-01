@@ -1,0 +1,24 @@
+{
+  "name": "hatchling-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create hatchling",
+    "db:migrate": "wrangler d1 migrations apply hatchling --local",
+    "db:migrate:remote": "wrangler d1 migrations apply hatchling --remote",
+    "db:seed": "wrangler d1 execute hatchling --local --file=./seeds/seed.sql",
+    "db:seed:remote": "wrangler d1 execute hatchling --remote --file=./seeds/seed.sql",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.9.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.95.0"
+  }
+}

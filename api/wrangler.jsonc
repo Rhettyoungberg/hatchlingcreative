@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "hatchling-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hatchling",
+      // Replace with the id printed by `npm run db:create`
+      "database_id": "REPLACE_WITH_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    // Nightly daily-rollup job at 08:10 UTC
+    "crons": ["10 8 * * *"]
+  },
+  "vars": {
+    // Non-secret config. Secrets (SESSION_SECRET, RESEND_API_KEY) are set via `wrangler secret put`.
+    "DASHBOARD_URL": "http://localhost:5173",
+    "ALLOWED_EMAILS": "rhett@hatchlingcreative.com",
+    "COOKIE_DOMAIN": "",
+    "RESEND_FROM": "Hatchling <onboarding@resend.dev>",
+    "ENVIRONMENT": "development",
+    // App Store Connect (non-secret IDs). The .p8 key is set as the ASC_PRIVATE_KEY
+    // secret. Leave blank to disable the integration. See docs/APPSTORE_CONNECT.md.
+    "ASC_KEY_ID": "",
+    "ASC_ISSUER_ID": "",
+    "ASC_VENDOR_NUMBER": ""
+  }
+}

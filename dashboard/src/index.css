@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-void text-white antialiased font-sans;
+  }
+  ::selection {
+    @apply bg-accent-indigo/30;
+  }
+  /* Subtle ambient gradient behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        60rem 60rem at 80% -10%,
+        rgba(129, 140, 248, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(50rem 50rem at -10% 10%, rgba(192, 132, 252, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-panel/60 backdrop-blur-sm;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-indigo to-accent-violet;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-accent-indigo to-accent-violet text-void hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply btn border border-line text-white/80 hover:bg-white/5;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-black/30 px-3 py-2 text-sm outline-none placeholder:text-white/30 focus:border-accent-dim;
+  }
+  .label-chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}

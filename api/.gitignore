@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars
+dist/
+*.log
+.DS_Store
+# Secrets — never commit the App Store Connect private key
+secrets/
+*.p8

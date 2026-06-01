@@ -1,0 +1,25 @@
+# Copy to .dev.vars for local development (this file is git-ignored).
+# In production these are set with: wrangler secret put <NAME>
+
+# Signs session + magic-link tokens. Any long random string.
+SESSION_SECRET="dev-secret-change-me-to-a-long-random-string"
+
+# Resend API key for sending magic-link emails (https://resend.com).
+# Leave blank in dev — the magic link will be printed to the worker console instead.
+RESEND_API_KEY=""
+
+# App Store Connect (optional — integration is skipped if unset).
+# ASC_KEY_ID / ASC_ISSUER_ID / ASC_VENDOR_NUMBER can also live in wrangler.jsonc vars.
+# ASC_PRIVATE_KEY is the FULL .p8 contents (PEM), newlines and all. In .dev.vars use
+# a quoted multi-line value:
+#   ASC_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----
+#   MIGTAgEAMBMGByqGSM49...
+#   -----END PRIVATE KEY-----"
+ASC_KEY_ID=""
+ASC_ISSUER_ID=""
+ASC_VENDOR_NUMBER=""
+ASC_PRIVATE_KEY=""
+
+# Fledgeling local agent: shared bearer token for the fledged daemon + `fledge sync`.
+# Set in prod with: wrangler secret put FLEDGED_TOKEN
+FLEDGED_TOKEN=any-long-random-string
