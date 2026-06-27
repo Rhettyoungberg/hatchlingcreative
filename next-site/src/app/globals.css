@@ -11,10 +11,24 @@
   ::selection {
     @apply bg-accent-indigo/30;
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #818cf8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    body {
+      cursor: auto;
+    }
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-indigo to-accent-violet;
+    @apply text-accent-indigo;
   }
 }

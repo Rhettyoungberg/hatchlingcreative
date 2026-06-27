@@ -1,18 +1,19 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { slideInLeft, slideInRight, staggerContainer } from "@/lib/animations";
 
 const stats = [
-  { value: 12, suffix: "+", label: "Projects Shipped" },
+  { value: 4, suffix: "", label: "Disciplines" },
   { value: 3, suffix: "", label: "Years Running" },
   { value: 100, suffix: "%", label: "Craft Obsessed" },
 ];
 
 export default function About() {
   const ref = useRef(null);
+  const reduce = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -21,13 +22,13 @@ export default function About() {
   const quoteY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="about" ref={ref} className="py-32 px-6 md:px-12">
+    <section id="about" ref={ref} className="py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <motion.p
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={slideInLeft}
-          className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/25"
+          className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/45"
         >
           About
         </motion.p>
@@ -35,7 +36,7 @@ export default function About() {
         <div className="mt-8 flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left: Pull quote with parallax */}
           <motion.div
-            style={{ y: quoteY }}
+            style={{ y: reduce ? 0 : quoteY }}
             className="lg:flex-[1.2]"
           >
             <motion.blockquote
@@ -87,7 +88,7 @@ export default function About() {
                       suffix={stat.suffix}
                     />
                   </div>
-                  <div className="mt-1 font-sans text-[11px] tracking-[3px] uppercase text-white/25">
+                  <div className="mt-1 font-sans text-[11px] tracking-[3px] uppercase text-white/45">
                     {stat.label}
                   </div>
                 </div>

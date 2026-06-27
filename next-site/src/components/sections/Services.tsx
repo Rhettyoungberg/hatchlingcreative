@@ -93,7 +93,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" ref={ref} className="py-32 px-6 md:px-12">
+    <section id="services" ref={ref} className="py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -102,17 +102,25 @@ export default function Services() {
         >
           <motion.p
             variants={slideInLeft}
-            className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/25"
+            className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/45"
           >
-            What We Do
+            How we build
           </motion.p>
           <motion.h2
             variants={slideInLeft}
             className="mt-4 font-serif text-5xl md:text-6xl font-bold text-white"
           >
             Four disciplines,{" "}
-            <em className="font-normal italic text-white/50">one vision.</em>
+            <em className="font-normal italic text-white/50">one team.</em>
           </motion.h2>
+          <motion.p
+            variants={slideInLeft}
+            className="mt-6 max-w-xl font-sans text-base text-white/55 leading-relaxed"
+          >
+            Design, build, ship, and scale. We take products the whole way and
+            keep them fast once they are live, so your team can stay focused on
+            the business.
+          </motion.p>
         </motion.div>
 
         <div className="mt-16">
@@ -141,13 +149,15 @@ export default function Services() {
                 {/* Clickable row */}
                 <button
                   onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                  aria-controls={`service-panel-${service.num}`}
                   className={`w-full flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-10 py-8 md:py-10 px-4 -mx-4 rounded transition-colors duration-300 text-left ${
                     isOpen ? "bg-white/[0.02]" : "hover:bg-white/[0.02]"
                   }`}
                   data-cursor=""
                 >
                   <div className="flex items-baseline gap-5 flex-shrink-0">
-                    <span className="font-sans text-xs text-white/20 tracking-[1px]">
+                    <span className="font-sans text-xs text-white/45 tracking-[1px]">
                       {service.num}
                     </span>
                     <span className="font-serif text-3xl md:text-4xl font-bold text-white">
@@ -155,7 +165,7 @@ export default function Services() {
                     </span>
                   </div>
                   <div className="flex items-center gap-6">
-                    <p className="max-w-xs font-sans text-sm text-white/40 leading-relaxed">
+                    <p className="max-w-xs font-sans text-sm text-white/55 leading-relaxed">
                       {service.description}
                     </p>
                     <motion.span
@@ -172,6 +182,8 @@ export default function Services() {
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
+                      id={`service-panel-${service.num}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -196,14 +208,14 @@ export default function Services() {
                             </p>
 
                             <div className="mt-6">
-                              <p className="font-sans text-[11px] font-medium tracking-[3px] uppercase text-white/25 mb-3">
+                              <p className="font-sans text-[11px] font-medium tracking-[3px] uppercase text-white/45 mb-3">
                                 Capabilities
                               </p>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
                                 {service.expanded.capabilities.map((cap) => (
                                   <div
                                     key={cap}
-                                    className="flex items-center gap-2 font-sans text-sm text-white/40"
+                                    className="flex items-center gap-2 font-sans text-sm text-white/55"
                                   >
                                     <span className="w-1 h-1 rounded-full bg-accent-indigo/50 flex-shrink-0" />
                                     {cap}

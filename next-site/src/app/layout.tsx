@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -16,30 +16,33 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08080f",
+};
+
 export const metadata: Metadata = {
-  title: "Hatchling Creative | App Development, AI Integration & Design",
+  title: "Hatchling Creative | Software Studio",
   description:
-    "We craft beautiful applications and partner with companies to turn technology into their competitive advantage. App development, AI integration, cloud systems, and UI/UX design.",
+    "Hatchling Creative is a product studio building beautiful, privacy-first software for ambitious companies: iOS and Android apps, web platforms, and AI features. Featured work: MileMarker.",
   keywords:
-    "app development, AI integration, cloud systems, UI/UX design, mobile apps, software development, Hatchling Creative",
+    "software studio, product studio, iOS app development, Android app development, web platform development, AI integration, UI UX design, privacy-first software, Hatchling Creative",
   authors: [{ name: "Hatchling Creative" }],
   metadataBase: new URL("https://hatchlingcreative.com"),
   openGraph: {
     type: "website",
     url: "https://hatchlingcreative.com/",
-    title: "Hatchling Creative | App Development, AI Integration & Design",
+    title: "Hatchling Creative | Software Studio",
     description:
-      "We craft beautiful applications and partner with companies to turn technology into their competitive advantage.",
+      "Hatchling Creative is a product studio building beautiful, privacy-first software for ambitious companies: iOS and Android apps, web platforms, and AI features. Featured work: MileMarker.",
     siteName: "Hatchling Creative",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hatchling Creative | App Development, AI Integration & Design",
+    title: "Hatchling Creative | Software Studio",
     description:
-      "We craft beautiful applications and partner with companies to turn technology into their competitive advantage.",
-  },
-  other: {
-    "theme-color": "#08080f",
+      "Hatchling Creative is a product studio building beautiful, privacy-first software for ambitious companies: iOS and Android apps, web platforms, and AI features. Featured work: MileMarker.",
   },
   icons: {
     icon: "/NewSymbol.svg",

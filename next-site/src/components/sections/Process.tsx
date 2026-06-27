@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { slideInLeft } from "@/lib/animations";
 
 const phases = [
@@ -34,17 +34,18 @@ const phases = [
 export default function Process() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduce = useReducedMotion();
 
   return (
-    <section ref={ref} className="py-32 px-6 md:px-12">
+    <section ref={ref} className="py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={reduce ? "visible" : "hidden"}
+          animate={reduce || isInView ? "visible" : "hidden"}
         >
           <motion.p
             variants={slideInLeft}
-            className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/25"
+            className="font-sans text-[11px] font-medium tracking-[5px] uppercase text-white/45"
           >
             How We Work
           </motion.p>
@@ -61,9 +62,11 @@ export default function Process() {
           {phases.map((phase, i) => (
             <motion.div
               key={phase.num}
-              initial={{ opacity: 0, y: 16 }}
+              initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={
-                isInView
+                reduce
+                  ? { opacity: 1 }
+                  : isInView
                   ? {
                       opacity: 1,
                       y: 0,
@@ -87,9 +90,11 @@ export default function Process() {
                 {phase.description}
               </p>
               <motion.div
-                initial={{ width: 0 }}
+                initial={reduce ? { width: "100%" } : { width: 0 }}
                 animate={
-                  isInView
+                  reduce
+                    ? { width: "100%" }
+                    : isInView
                     ? {
                         width: "100%",
                         transition: {

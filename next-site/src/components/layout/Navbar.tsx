@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
@@ -11,6 +11,8 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,15 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [open]);
 
   return (
     <motion.nav
@@ -32,7 +43,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-5">
-        <a href="#" className="flex items-center" data-cursor="Home">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+          }}
+          className="flex items-center"
+          data-cursor="Home"
+        >
           <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="fill-white">
             <g transform="matrix(1.25,0,0,1.25,-12.499991655349731,-14.999923706054688)">
               <g transform="translate(0,-952.36218)">
@@ -51,8 +70,8 @@ export default function Navbar() {
               data-cursor=""
               className={`font-sans text-[13px] tracking-[1px] transition-colors duration-300 ${
                 link.accent
-                  ? "text-white border-b border-white/30 pb-0.5"
-                  : "text-white/45 hover:text-white/80"
+                  ? "text-white border-b border-white/55 pb-0.5"
+                  : "text-white/55 hover:text-white/80"
               }`}
             >
               {link.label}
@@ -62,14 +81,47 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden flex flex-col items-end justify-center gap-1.5 min-w-[44px] min-h-[44px] p-3"
           data-cursor=""
           aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <span className="block w-6 h-px bg-white/80" />
           <span className="block w-4 h-px bg-white/80" />
         </button>
       </div>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-void/95 backdrop-blur-lg border-b border-white/[0.06]"
+          >
+            <div className="flex flex-col px-6 py-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  data-cursor=""
+                  className={`font-sans text-sm tracking-[1px] py-3 transition-colors duration-300 ${
+                    link.accent ? "text-white" : "text-white/55 hover:text-white/80"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
